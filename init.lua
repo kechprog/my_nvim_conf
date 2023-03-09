@@ -109,6 +109,7 @@ require('lazy').setup({
   'romgrk/barbar.nvim',
   'windwp/nvim-autopairs',
   'akinsho/toggleterm.nvim',
+  'folke/todo-comments.nvim',
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -131,3 +132,5 @@ require 'tree'
 require 'topbar'
 require('nvim-autopairs').setup {}
 require 'term'
+-- TODO help me
+require 'todo-comment'
