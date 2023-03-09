@@ -1,5 +1,5 @@
 require 'bufferline'.setup {
-  animation               = true,
+  animation               = false,
   auto_hide               = false,
   tabpages                = true,
   closable                = true,

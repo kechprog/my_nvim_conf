@@ -109,6 +109,7 @@ require('lazy').setup({
   'romgrk/barbar.nvim',
   'windwp/nvim-autopairs',
   'akinsho/toggleterm.nvim',
+  'glepnir/dashboard-nvim',
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -121,6 +122,7 @@ require('lazy').setup({
   },
 }, {})
 
+
 require 'nvim_stock'
 require '_telescope'
 require 'treesitter'
@@ -131,3 +133,4 @@ require 'tree'
 require 'topbar'
 require('nvim-autopairs').setup {}
 require 'term'
+require 'greater'
