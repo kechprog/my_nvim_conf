@@ -1,4 +1,3 @@
-
 local db = require('dashboard')
 
 db.setup({
@@ -17,12 +16,14 @@ db.setup({
         action = 'Telescope find_files',
         key = 'f',
       },
+
       {
-        desc = ' Apps',
+        desc = '󱠏 Projects',
         group = 'DiagnosticHint',
-        action = 'Telescope app',
-        key = 'a',
+        action = '',
+        key = 'p',
       },
+
       {
         desc = ' dotfiles',
         group = 'Number',
