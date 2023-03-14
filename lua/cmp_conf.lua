@@ -3,36 +3,44 @@ local luasnip = require 'luasnip'
 luasnip.config.setup {}
 
 require('lspkind').init({
-    mode = 'symbol_text',
-    preset = 'codicons',
-    symbol_map = {
-      Text = "",
-      Method = "",
-      Function = "",
-      Constructor = "",
-      Field = "ﰠ",
-      Variable = "",
-      Class = "ﴯ",
-      Interface = "",
-      Module = "",
-      Property = "ﰠ",
-      Unit = "塞",
-      Value = "",
-      Enum = "",
-      Keyword = "",
-      Snippet = "",
-      Color = "",
-      File = "",
-      Reference = "",
-      Folder = "",
-      EnumMember = "",
-      Constant = "",
-      Struct = "פּ",
-      Event = "",
-      Operator = "",
-      TypeParameter = ""
-    },
+  mode = 'symbol_text',
+  preset = 'codicons',
+  symbol_map = {
+    Text = "",
+    Method = "",
+    Function = "",
+    Constructor = "",
+    Field = "ﰠ",
+    Variable = "",
+    Class = "ﴯ",
+    Interface = "",
+    Module = "",
+    Property = "ﰠ",
+    Unit = "塞",
+    Value = "",
+    Enum = "",
+    Keyword = "",
+    Snippet = "",
+    Color = "",
+    File = "",
+    Reference = "",
+    Folder = "",
+    EnumMember = "",
+    Constant = "",
+    Struct = "פּ",
+    Event = "",
+    Operator = "",
+    Copilot  = "",
+    TypeParameter = ""
+  },
 })
+
+
+require('copilot').setup {
+  suggestion = { enabled = false },
+  panel = { enabled = false },
+}
+require("copilot_cmp").setup()
 
 cmp.setup {
   snippet = {
@@ -42,8 +50,8 @@ cmp.setup {
   },
 
   mapping = cmp.mapping.preset.insert {
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-j>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-k>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
@@ -69,17 +77,24 @@ cmp.setup {
     end, { 'i', 's' }),
   },
 
-formatting = {
+  formatting = {
     format = require('lspkind').cmp_format({
-      mode = 'symbol', -- show only symbol annotations
-      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-      ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+      mode = 'symbol',
+      maxwidth = 50,
+      maxhieght = 25,
     })
   },
 
+  sorting = {
+    comparators = {require('copilot_cmp.comparators').prioritize}
+  },
+
   sources = {
-    { name = "copilot", group_index = 0 },
+    { name = 'copilot' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'path' },
+    -- add another
+    {}
   },
 }
