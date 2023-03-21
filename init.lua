@@ -16,6 +16,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
+--[[
+-- TODO:
+-- debugger setup
+-- inpatient
+--]]
+
+
 ---------------------   PACKEGES   ---------------------
 require('lazy').setup({
   'tpope/vim-fugitive',
@@ -85,7 +92,7 @@ require('lazy').setup({
     },
   },
 
-  { -- Add indentation guides even on blank lines
+  { -- Add indentation guides even on blank lines239, 222, 205
     'lukas-reineke/indent-blankline.nvim',
     opts = {
       char = '|',
@@ -110,6 +117,7 @@ require('lazy').setup({
   'windwp/nvim-autopairs',
   'akinsho/toggleterm.nvim',
   'glepnir/dashboard-nvim',
+  'folke/todo-comments.nvim',
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -134,3 +142,4 @@ require 'topbar'
 require('nvim-autopairs').setup {}
 require 'term'
 require 'greater'
+require 'todo-comment'
