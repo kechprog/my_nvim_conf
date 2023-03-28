@@ -13,6 +13,12 @@ vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
 
+local set = vim.opt -- set options
+set.tabstop = 4
+set.softtabstop = 4
+set.shiftwidth = 4
+
+
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('i', 'jk', '<esc>', {silent = true})
@@ -27,7 +33,7 @@ vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set('n', '<C-h>', '<C-wh>', {silent = true})
 
-vim.o.guifont = "Fira Code:h14" -- text below applies for VimScript
+vim.o.guifont = "FiraCode Nerd Font:h18"
 
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

@@ -22,7 +22,6 @@ vim.opt.rtp:prepend(lazypath)
 -- inpatient
 --]]
 
-
 ---------------------   PACKEGES   ---------------------
 require('lazy').setup({
   'tpope/vim-fugitive',
