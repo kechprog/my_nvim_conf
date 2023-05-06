@@ -62,7 +62,7 @@ require('lazy').setup({
       },
     },
   },
-
+  "elkowar/yuck.vim",
   { -- Theme inspired by Atom
     'catppuccin/nvim',
     priority = 1000,
