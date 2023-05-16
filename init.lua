@@ -48,6 +48,10 @@ require('lazy').setup({
     dependencies = { 'zbirenbaum/copilot.lua' }
   },
 
+  { 'ggandor/leap.nvim',
+    dependencies = {'tpope/vim-repeat'}
+  },
+
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',          opts = {} },
   { -- Adds git releated signs to the gutter, as well as utilities for managing changes
@@ -62,7 +66,7 @@ require('lazy').setup({
       },
     },
   },
-  "elkowar/yuck.vim",
+  { "elkowar/yuck.vim" },
   { -- Theme inspired by Atom
     'catppuccin/nvim',
     priority = 1000,
@@ -142,3 +146,4 @@ require('nvim-autopairs').setup {}
 require 'term'
 require 'greater'
 require 'todo-comment'
+require '_leap'
