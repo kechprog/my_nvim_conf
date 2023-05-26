@@ -1,23 +1,6 @@
-require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-      },
-    },
-  },
-}
+local builtin = require 'telescope.builtin'
 
--- Enable telescope fzf native, if installed
-pcall(require('telescope').load_extension, 'fzf')
 
--- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>st', function()
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = 'find in current file' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files)
+vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = 'search file' })
+vim.keymap.set('n', '<leader>sg', builtin.live_grep,  { desc = 'search grep' })
+vim.keymap.set('n', '<leader>ss', builtin.treesitter, { desc = 'search grep' })

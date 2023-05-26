@@ -88,7 +88,7 @@ require('lazy').setup({
     'nvim-lualine/lualine.nvim',
     opts = {
       options = {
-        icons_enabled = false,
+        icons_enabled = true,
         component_separators = '|',
         section_separators = '',
       },
@@ -106,15 +106,7 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim',         opts = {} },
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
 
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make',
-    cond = function()
-      return vim.fn.executable 'make' == 1
-    end,
-  },
-
-  'nvim-tree/nvim-web-devicons',
+  'kechprog/nvim-web-devicons',
   'nvim-tree/nvim-tree.lua',
   'romgrk/barbar.nvim',
   'windwp/nvim-autopairs',
