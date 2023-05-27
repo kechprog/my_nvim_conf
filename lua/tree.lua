@@ -9,7 +9,7 @@ require("nvim-tree").setup({
 })
 
 local tree_api = require('nvim-tree.api')
-vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<cr>', { desc = 'toggle tree' })
+vim.keymap.set('n', '<leader>e', tree_api.tree.toggle, { desc = 'toggle tree' })
 
 vim.keymap.set('n', '<leader>E', function()
   if vim.bo.filetype == 'NvimTree' then

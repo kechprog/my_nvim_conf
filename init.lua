@@ -111,8 +111,8 @@ require('lazy').setup({
   'romgrk/barbar.nvim',
   'windwp/nvim-autopairs',
   'akinsho/toggleterm.nvim',
-  'glepnir/dashboard-nvim',
   'folke/todo-comments.nvim',
+  'startup-nvim/startup.nvim',
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -126,16 +126,16 @@ require('lazy').setup({
 }, {})
 
 
+require 'tree'     -- file explorer actually needs some setup and then
+require '_startup' -- has to be almost first, it is an actual startup thing
 require 'nvim_stock'
 require '_telescope'
 require 'treesitter'
 require 'cmp_conf'
 require 'lsp_conf'
 require 'coment'
-require 'tree'
 require 'topbar'
 require('nvim-autopairs').setup {}
 require 'term'
-require 'greater'
 require 'todo-comment'
 require '_leap'
