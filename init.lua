@@ -106,7 +106,7 @@ require('lazy').setup({
   { 'numToStr/Comment.nvim',         opts = {} },
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
 
-  'kechprog/nvim-web-devicons',
+  'nvim-tree/nvim-web-devicons',
   'nvim-tree/nvim-tree.lua',
   'romgrk/barbar.nvim',
   'windwp/nvim-autopairs',
