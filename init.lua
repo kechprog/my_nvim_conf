@@ -112,7 +112,10 @@ require('lazy').setup({
   'windwp/nvim-autopairs',
   'akinsho/toggleterm.nvim',
   'folke/todo-comments.nvim',
-  'startup-nvim/startup.nvim',
+  {
+    'startup-nvim/startup.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
 
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
@@ -126,8 +129,8 @@ require('lazy').setup({
 }, {})
 
 
-require 'tree'     -- file explorer actually needs some setup and then
 require '_startup' -- has to be almost first, it is an actual startup thing
+require 'tree'     -- file explorer actually needs some setup and then
 require 'nvim_stock'
 require '_telescope'
 require 'treesitter'
