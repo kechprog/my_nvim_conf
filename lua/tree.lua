@@ -25,7 +25,7 @@ vim.keymap.set('n', 'n', function ()
     else
         vim.cmd('normal! n')
     end
-end , { noremap = true, silent = true, desc = 'create a new file in tree' })
+end , { noremap = true, silent = true, desc = 'create a new file/dir in tree' })
 
 vim.keymap.set('n', 'c', function ()
   if vim.bo.filetype == 'NvimTree' then
