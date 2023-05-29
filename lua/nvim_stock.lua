@@ -19,6 +19,10 @@ set.softtabstop = 4
 set.shiftwidth = 4
 
 
+vim.cmd("set relativenumber")
+vim.cmd("set number")
+
+
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('i', 'jk', '<esc>', {silent = true})
