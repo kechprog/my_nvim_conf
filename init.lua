@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -19,7 +21,6 @@ vim.opt.rtp:prepend(lazypath)
 --[[
 -- TODO:
 -- debugger setup
--- inpatient
 --]]
 
 ---------------------   PACKEGES   ---------------------
@@ -36,6 +37,10 @@ require('lazy').setup({
       { 'j-hui/fidget.nvim', opts = {} },
       'folke/neodev.nvim',
     },
+  },
+
+  { -- dap
+    'mfussenegger/nvim-dap'
   },
 
   'onsails/lspkind.nvim',
