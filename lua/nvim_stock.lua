@@ -21,6 +21,7 @@ set.shiftwidth = 4
 
 vim.cmd("set relativenumber")
 vim.cmd("set number")
+vim.cmd("set cmdheight=0")
 
 
 -- See `:help vim.keymap.set()`

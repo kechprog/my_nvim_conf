@@ -29,7 +29,8 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
 
-  { -- LSP Configuration & Plugins
+  {
+    -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
       'williamboman/mason.nvim',
@@ -44,7 +45,8 @@ require('lazy').setup({
   },
 
   'onsails/lspkind.nvim',
-  { -- Autocompletion
+  {
+    -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-path' },
   },
@@ -53,13 +55,15 @@ require('lazy').setup({
     dependencies = { 'zbirenbaum/copilot.lua' }
   },
 
-  { 'ggandor/leap.nvim',
-    dependencies = {'tpope/vim-repeat'}
+  {
+    'ggandor/leap.nvim',
+    dependencies = { 'tpope/vim-repeat' }
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',          opts = {} },
-  { -- Adds git releated signs to the gutter, as well as utilities for managing changes
+  { 'folke/which-key.nvim', opts = {} },
+  {
+    -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
       signs = {
@@ -72,7 +76,8 @@ require('lazy').setup({
     },
   },
   { "elkowar/yuck.vim" },
-  { -- Theme inspired by Atom
+  {
+    -- Theme inspired by Atom
     'catppuccin/nvim',
     priority = 1000,
     config = function()
@@ -89,18 +94,9 @@ require('lazy').setup({
       vim.cmd.colorscheme 'catppuccin-macchiato'
     end,
   },
+  'nvim-lualine/lualine.nvim',
   {
-    'nvim-lualine/lualine.nvim',
-    opts = {
-      options = {
-        icons_enabled = true,
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
-
-  { -- Add indentation guides even on blank lines239, 222, 205
+    -- Add indentation guides even on blank lines239, 222, 205
     'lukas-reineke/indent-blankline.nvim',
     opts = {
       char = '|',
@@ -110,7 +106,6 @@ require('lazy').setup({
 
   { 'numToStr/Comment.nvim',         opts = {} },
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
-
   'nvim-tree/nvim-web-devicons',
   'nvim-tree/nvim-tree.lua',
   'romgrk/barbar.nvim',
@@ -122,7 +117,8 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
 
-  { -- Highlight, edit, and navigate code
+  {
+    -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
@@ -147,3 +143,4 @@ require('nvim-autopairs').setup {}
 require 'term'
 require 'todo-comment'
 require '_leap'
+require 'lline'
