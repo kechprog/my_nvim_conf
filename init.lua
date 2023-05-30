@@ -40,9 +40,8 @@ require('lazy').setup({
     },
   },
 
-  { -- dap
-    'mfussenegger/nvim-dap'
-  },
+  'mfussenegger/nvim-dap',
+  'rcarriga/nvim-dap-ui',
 
   'onsails/lspkind.nvim',
   {
