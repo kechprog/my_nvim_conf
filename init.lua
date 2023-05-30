@@ -42,6 +42,7 @@ require('lazy').setup({
 
   'mfussenegger/nvim-dap',
   'rcarriga/nvim-dap-ui',
+  'mfussenegger/nvim-dap-python',
 
   'onsails/lspkind.nvim',
   {
@@ -143,3 +144,4 @@ require 'term'
 require 'todo-comment'
 require '_leap'
 require 'lline'
+require '_dap'
