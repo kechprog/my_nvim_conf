@@ -130,6 +130,7 @@ require('lazy').setup({
 
 
 require '_startup' -- has to be almost first, it is an actual startup thing
+require '_dap.init'
 require 'tree'     -- file explorer actually needs some setup and then
 require 'nvim_stock'
 require '_telescope'
