@@ -1,21 +1,19 @@
+local builtin = require 'telescope.builtin'
+
 local on_attach = function(_, bufnr)
   local nmap = function(keys, func, desc)
-    if desc then
-      desc = 'LSP: ' .. desc
-    end
-
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
 
   nmap('<leader>lr', vim.lsp.buf.rename, '[R]e[n]ame')
   nmap('<leader>la', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  nmap('<leader>ld', builtin.diagnostics, '[d]iagnostics)')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-  nmap('<leader>gD', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  nmap('<leader>ls', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-  nmap('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+  nmap('gD', vim.lsp.buf.type_definition, 'Type [D]efinition')
+
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
 
   -- Create a command `:Format` local to the LSP buffer

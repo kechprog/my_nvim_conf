@@ -45,4 +45,4 @@ function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
 end
 
-vim.keymap.set('n', '<leader>gg', _LAZYGIT_TOGGLE)
+vim.keymap.set('n', '<leader>gg', _LAZYGIT_TOGGLE, {desc = "[G]it [G]ui})"})

@@ -56,7 +56,7 @@ cmp.setup {
       select = false,
     },
 
-    ['//'] = cmp.mapping( function (fallback) 
+    ['\\'] = cmp.mapping( function (fallback) 
       if require('luasnip').expand_or_jumpable() then
         require('luasnip').expand_or_jump()
       else
