@@ -22,12 +22,8 @@ local on_attach = function(_, bufnr)
   end, { desc = 'Format current buffer with LSP' })
 end
 
+vim.g.zig_fmt_autosave = 0 -- it is just what it is
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  -- tsserver = {},
 
   lua_ls = {
     Lua = {
