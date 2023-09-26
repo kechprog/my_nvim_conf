@@ -1,6 +1,6 @@
 local builtin = require 'telescope.builtin'
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   local nmap = function(keys, func, desc)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
@@ -18,9 +18,23 @@ local on_attach = function(_, bufnr)
 
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-    vim.lsp.buf.format({options = {tabSize=vim.o.tabstop}})
+    vim.lsp.buf.format({ options = { tabSize = vim.o.tabstop } })
   end, { desc = 'Format current buffer with LSP' })
+
 end
+
+local copilot = require('copilot')
+local copilot_running = true
+local function copilot_toggle()
+  if copilot_running then
+    print("disabling")
+    vim.cmd("Copilot disable")
+  else
+   vim.cmd("Copilot enable")
+    print("enableing")
+  end
+end
+vim.keymap.set('n', '<leader>lc', copilot_toggle, { desc = '[C]opilot toggle' })
 
 vim.g.zig_fmt_autosave = 0 -- it is just what it is
 local servers = {
