@@ -12,6 +12,8 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
+vim.wo.foldmarker = "[ , ]"
+vim.wo.foldmethod = "indent"
 
 local set = vim.opt -- set options
 set.tabstop = 4
@@ -37,6 +39,8 @@ vim.keymap.set("v", "K", ":m .-2<CR>==gv", {silent=true})
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set('n', '<C-h>', '<C-wh>', {silent = true})
+
+vim.keymap.set('n', '<leader>zf', 'za', {noremap = true})
 
 vim.o.guifont = "FiraCode Nerd Font:h18"
 
