@@ -16,13 +16,15 @@ vim.wo.foldmarker = "[ , ]"
 vim.wo.foldmethod = "manual"
 
 -- https://stackoverflow.com/questions/37552913/vim-how-to-keep-folds-on-save/37558470#37558470
-vim.cmd [[
-  augroup remember_folds
-    autocmd!
-    autocmd BufWinLeave * mkview
-    autocmd BufWinEnter * silent! loadview
-  augroup END
-]]
+-- TODO: filter files, to be saved(telescope popups should not be attempted to be saved)
+
+-- vim.cmd [[
+--   augroup remember_folds
+--     autocmd!
+--     autocmd BufWinLeave * mkview
+--     autocmd BufWinEnter * silent! loadview
+--   augroup END
+-- ]]
 
 local set = vim.opt -- set options
 set.tabstop = 4
