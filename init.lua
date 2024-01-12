@@ -1,3 +1,4 @@
+---@diagnostic disable: missing-fields
 vim.loader.enable()
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -46,7 +47,7 @@ require('lazy').setup({
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip', 'hrsh7th/cmp-path' },
+    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip' },
   },
   {
     'zbirenbaum/copilot-cmp',
@@ -93,12 +94,8 @@ require('lazy').setup({
   },
   'nvim-lualine/lualine.nvim',
   {
-    -- Add indentation guides even on blank lines239, 222, 205
     'lukas-reineke/indent-blankline.nvim',
-    opts = {
-      char = '|',
-      show_trailing_blankline_indent = false,
-    },
+    main = 'ibl',
   },
 
   { 'numToStr/Comment.nvim',         opts = {} },
@@ -126,7 +123,7 @@ require('lazy').setup({
   },
 }, {})
 
-
+require '_ibl'
 require '_startup' -- has to be almost first, it is an actual startup thing
 require '_dap.init'
 require 'tree'     -- file explorer actually needs some setup and then
