@@ -36,7 +36,35 @@ require('copilot').setup {
 }
 require("copilot_cmp").setup()
 
+local function border(hl_name)
+  return {
+    { "╭", hl_name },
+    { "─", hl_name },
+    { "╮", hl_name },
+    { "│", hl_name },
+    { "╯", hl_name },
+    { "─", hl_name },
+    { "╰", hl_name },
+    { "│", hl_name },
+  }
+end
+
 cmp.setup {
+
+  window = {
+    completion = {
+      side_padding = 0,
+      max_height = 15,
+      winhighlight = "Normal:CmpPmenu",
+      border = border 'CmpPmenu',
+      scrollbar = false,
+    },
+
+    documentation = {
+      border = border "CmpDocBorder",
+      winhighlight = "Normal:CmpDoc",
+    }
+  },
 
   snippet = {
     expand = function(args)
@@ -46,7 +74,7 @@ cmp.setup {
 
   mapping = cmp.mapping.preset.insert {
     ['<C-j>'] = cmp.mapping.scroll_docs(-4),
-    
+
     ['<C-k>'] = cmp.mapping.scroll_docs(4),
 
     ['<C-Space>'] = cmp.mapping.complete {},
@@ -82,8 +110,10 @@ cmp.setup {
     })
   },
 
+  experimental = { ghost_text = true },
+
   sorting = {
-    comparators = {require('copilot_cmp.comparators').prioritize}
+    comparators = { require('copilot_cmp.comparators').score }
   },
 
   sources = {
