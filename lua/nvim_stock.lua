@@ -25,6 +25,12 @@ vim.wo.foldmethod = "manual"
 --     autocmd BufWinEnter * silent! loadview
 --   augroup END
 -- ]]
+--
+
+vim.cmd [[ set laststatus=0
+hi! link StatusLine Normal
+hi! link StatusLineNC Normal
+set statusline=%{repeat('─',winwidth('.'))} ]]
 
 local set = vim.opt -- set options
 set.tabstop = 4
@@ -40,8 +46,8 @@ vim.cmd("set cmdheight=0")
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('i', 'jk', '<esc>', {silent = true})
-vim.keymap.set('n', '<leader>w', ':w<cr>', {silent=true})
-vim.keymap.set('n', '<leader>q', ':q<cr>', {silent=true})
+vim.keymap.set('n', '<leader>w', ':silent w<cr>', {silent=true})
+vim.keymap.set('n', '<leader>q', ':silent q<cr>', {silent=true})
 vim.keymap.set('v', '>', '>gv', {silent=true})
 vim.keymap.set('v', '<', '<gv', {silent=true})
 vim.keymap.set("v", "J", ":m .+1<CR>==gv", {silent=true})
@@ -50,9 +56,7 @@ vim.keymap.set("v", "K", ":m .-2<CR>==gv", {silent=true})
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 vim.keymap.set('n', '<C-h>', '<C-wh>', {silent = true})
-
 vim.keymap.set('n', '<leader>zf', 'za', {noremap = true})
-
 vim.o.guifont = "FiraCode Nerd Font:h18"
 
 

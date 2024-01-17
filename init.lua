@@ -92,7 +92,6 @@ require('lazy').setup({
       vim.cmd.colorscheme 'catppuccin-macchiato'
     end,
   },
-  'nvim-lualine/lualine.nvim',
   {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
@@ -138,4 +137,3 @@ require('nvim-autopairs').setup {}
 require 'term'
 require 'todo-comment'
 require '_leap'
-require 'lline'
