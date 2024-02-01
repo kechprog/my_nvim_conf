@@ -100,6 +100,21 @@ cmp.setup {
       end
     end, { 'i', 's' }),
 
+    ['\\'] = cmp.mapping( function (fallback) 
+      if require('luasnip').expand_or_jumpable() then
+        require('luasnip').expand_or_jump()
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
+
+    ['|'] = cmp.mapping( function (fallback)
+      if require('luasnip').expand_or_jumpable(-1) then
+        require('luasnip').expand_or_jump(-1)
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
   },
 
   formatting = {
