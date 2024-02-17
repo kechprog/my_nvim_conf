@@ -23,7 +23,6 @@ local on_attach = function(client, bufnr)
 
 end
 
-local copilot = require('copilot')
 local copilot_running = true
 local function copilot_toggle()
   if copilot_running then
@@ -73,3 +72,15 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+local lsp = require('lsp-zero').preset({})
+
+lsp.on_attach(on_attach)
+lsp.setup()
+local dart_lsp = lsp.build_options('dartls', {})
+
+require('flutter-tools').setup({
+  lsp = {
+    capabilities = dart_lsp.capabilities
+  }
+})
