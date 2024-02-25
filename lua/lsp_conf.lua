@@ -1,3 +1,17 @@
+local lspz = require('lsp-zero').preset({})
+lspz.extend_lspconfig()
+
+lspz.on_attach(on_attach)
+lspz.setup()
+local dart_lsp = lspz.build_options('dartls', {})
+
+require('flutter-tools').setup({
+  lsp = {
+    capabilities = dart_lsp.capabilities
+  }
+})
+
+
 local builtin = require 'telescope.builtin'
 
 local on_attach = function(client, bufnr)
@@ -72,15 +86,3 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
-
-local lsp = require('lsp-zero').preset({})
-
-lsp.on_attach(on_attach)
-lsp.setup()
-local dart_lsp = lsp.build_options('dartls', {})
-
-require('flutter-tools').setup({
-  lsp = {
-    capabilities = dart_lsp.capabilities
-  }
-})
