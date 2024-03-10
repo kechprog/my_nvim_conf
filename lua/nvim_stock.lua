@@ -12,26 +12,15 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
-vim.wo.foldmarker = "[ , ]"
-vim.wo.foldmethod = "manual"
 
--- https://stackoverflow.com/questions/37552913/vim-how-to-keep-folds-on-save/37558470#37558470
--- TODO: filter files, to be saved(telescope popups should not be attempted to be saved)
+vim.cmd [[
+  set laststatus=0
+  hi! link StatusLine Normal
+  hi! link StatusLineNC Normal
+  set statusline=%{repeat('─',winwidth('.'))}
+]]
 
--- vim.cmd [[
---   augroup remember_folds
---     autocmd!
---     autocmd BufWinLeave * mkview
---     autocmd BufWinEnter * silent! loadview
---   augroup END
--- ]]
---
-
-vim.cmd [[ set laststatus=0
-hi! link StatusLine Normal
-hi! link StatusLineNC Normal
-set statusline=%{repeat('─',winwidth('.'))} ]]
-
+vim.o.guifont = "FiraCode Nerd Font:h18"
 local set = vim.opt -- set options
 set.tabstop = 4
 set.softtabstop = 4
@@ -50,14 +39,11 @@ vim.keymap.set('n', '<leader>w', ':silent w<cr>', {silent=true})
 vim.keymap.set('n', '<leader>q', ':silent q<cr>', {silent=true})
 vim.keymap.set('v', '>', '>gv', {silent=true})
 vim.keymap.set('v', '<', '<gv', {silent=true})
-vim.keymap.set("v", "J", ":m .+1<CR>==gv", {silent=true})
-vim.keymap.set("v", "K", ":m .-2<CR>==gv", {silent=true})
--- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+vim.api.nvim_set_keymap('x', 'K', [[:move '<-2<CR>gv=gv]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', 'J', [[:move '>+1<CR>gv=gv]], { noremap = true, silent = true })
+
 vim.keymap.set('n', '<C-h>', '<C-wh>', {silent = true})
-vim.keymap.set('n', '<leader>zf', 'za', {noremap = true})
-vim.o.guifont = "FiraCode Nerd Font:h18"
 
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

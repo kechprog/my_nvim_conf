@@ -42,13 +42,24 @@ require('lazy').setup({
   },
 
   {
+    "kylechui/nvim-surround",
+    version = "*",
+    event = "VeryLazy",
+  },
+
+
+  {
+    'ggandor/leap.nvim',
+    dependencies = { 'tpope/vim-repeat' }
+  },
+
+  {
     'akinsho/flutter-tools.nvim',
     lazy = false,
     dependencies = {
+      'stevearc/dressing.nvim',
       'nvim-lua/plenary.nvim',
-      'stevearc/dressing.nvim',   -- optional for vim.ui.select
-    },
-    config = true,
+    }
   },
 
   'mfussenegger/nvim-dap',
@@ -63,11 +74,6 @@ require('lazy').setup({
   {
     'zbirenbaum/copilot-cmp',
     dependencies = { 'zbirenbaum/copilot.lua' }
-  },
-
-  {
-    'ggandor/leap.nvim',
-    dependencies = { 'tpope/vim-repeat' }
   },
 
   -- Useful plugin to show you pending keybinds.

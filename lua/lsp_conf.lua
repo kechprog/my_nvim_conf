@@ -1,18 +1,6 @@
 local lspz = require('lsp-zero').preset({})
-lspz.extend_lspconfig()
-
-lspz.on_attach(on_attach)
-lspz.setup()
-local dart_lsp = lspz.build_options('dartls', {})
-
-require('flutter-tools').setup({
-  lsp = {
-    capabilities = dart_lsp.capabilities
-  }
-})
-
-
 local builtin = require 'telescope.builtin'
+lspz.extend_lspconfig()
 
 local on_attach = function(client, bufnr)
   local nmap = function(keys, func, desc)
@@ -24,7 +12,7 @@ local on_attach = function(client, bufnr)
   nmap('<leader>ld', builtin.diagnostics, '[d]iagnostics)')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+  nmap('gr', builtin.lsp_references, '[G]oto [R]eferences')
   nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   nmap('gD', vim.lsp.buf.type_definition, 'Type [D]efinition')
 
@@ -34,24 +22,31 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format({ options = { tabSize = vim.o.tabstop } })
   end, { desc = 'Format current buffer with LSP' })
-
 end
+
+lspz.on_attach(on_attach)
+lspz.setup()
+local dart_lsp = lspz.build_options('dartls', {})
+require('flutter-tools').setup({
+  lsp = {
+    capabilities = dart_lsp.capabilities
+  }
+})
 
 local copilot_running = true
 local function copilot_toggle()
   if copilot_running then
-    print("disabling")
+    copilot_running = false
     vim.cmd("Copilot disable")
   else
-   vim.cmd("Copilot enable")
-    print("enableing")
+    vim.cmd("Copilot enable")
+    copilot_running = true
   end
 end
 vim.keymap.set('n', '<leader>lc', copilot_toggle, { desc = '[C]opilot toggle' })
 
-vim.g.zig_fmt_autosave = 0 -- it is just what it is
+vim.g.zig_fmt_autosave = 0 -- it is what it is
 local servers = {
-
   lua_ls = {
     Lua = {
       workspace = { checkThirdParty = false },
