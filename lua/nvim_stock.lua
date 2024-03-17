@@ -34,16 +34,16 @@ vim.cmd("set cmdheight=0")
 
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-vim.keymap.set('i', 'jk', '<esc>', {silent = true})
-vim.keymap.set('n', '<leader>w', ':silent w<cr>', {silent=true})
-vim.keymap.set('n', '<leader>q', ':silent q<cr>', {silent=true})
-vim.keymap.set('v', '>', '>gv', {silent=true})
-vim.keymap.set('v', '<', '<gv', {silent=true})
+vim.keymap.set('i', 'jk', '<esc>', { silent = true })
+vim.keymap.set('n', '<leader>w', ':silent w<cr>', { silent = true })
+vim.keymap.set('n', '<leader>q', ':silent q<cr>', { silent = true })
+vim.keymap.set('v', '>', '>gv', { silent = true })
+vim.keymap.set('v', '<', '<gv', { silent = true })
 
 vim.api.nvim_set_keymap('x', 'K', [[:move '<-2<CR>gv=gv]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', 'J', [[:move '>+1<CR>gv=gv]], { noremap = true, silent = true })
 
-vim.keymap.set('n', '<C-h>', '<C-wh>', {silent = true})
+vim.keymap.set('n', '<C-h>', '<C-wh>', { silent = true })
 
 
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
