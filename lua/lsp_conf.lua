@@ -2,7 +2,7 @@ local lspz = require('lsp-zero').preset({})
 local builtin = require 'telescope.builtin'
 lspz.extend_lspconfig()
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_client, bufnr)
   local nmap = function(keys, func, desc)
     vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
   end
@@ -11,9 +11,11 @@ local on_attach = function(client, bufnr)
   nmap('<leader>la', vim.lsp.buf.code_action, '[C]ode [A]ction')
   nmap('<leader>ld', builtin.diagnostics, '[d]iagnostics)')
 
-  nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  nmap('gr', builtin.lsp_references, '[G]oto [R]eferences')
-  nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+  nmap('gd', vim.lsp.buf.definition,      '[G]oto [D]efinition')
+  --TODO: make gr call lsp_incoming_calls if thing under cursor is function/method
+  nmap('gr', builtin.lsp_references,      '[G]oto [R]eferences')
+  nmap('gi', builtin.lsp_implementations, '[G]oto [I]mplementation')
+  nmap('gm', builtin.lsp_outgoing_calls,  '[G]oto [C]alls (outgoing)')
   nmap('gD', vim.lsp.buf.type_definition, 'Type [D]efinition')
 
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
