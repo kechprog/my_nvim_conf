@@ -94,6 +94,9 @@ require('lazy').setup({
       },
     },
   },
+
+  "ray-x/go.nvim",
+
   {
     -- Theme inspired by Atom
     'catppuccin/nvim',
@@ -150,7 +153,7 @@ require 'nvim_stock'
 require '_telescope'
 require 'treesitter'
 require 'cmp_conf'
-require 'lsp_conf'
+require '_lsp'
 require 'coment'
 require 'topbar'
 require('nvim-autopairs').setup {}
