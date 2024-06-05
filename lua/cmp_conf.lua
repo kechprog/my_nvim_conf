@@ -112,7 +112,7 @@ cmp.setup {
     ['<C-e>'] = cmp.mapping(function(fallback)
       local success, _ = pcall(vim.lsp.buf.signature_help)
       if not success then fallback() end
-    end, { 'i', 's' }),
+    end, { 'i', 's', 'n' }),
 
   },
 

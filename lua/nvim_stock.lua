@@ -20,7 +20,6 @@ vim.cmd [[
   set statusline=%{repeat('─',winwidth('.'))}
 ]]
 
-vim.o.guifont = "FiraCode Nerd Font:h18"
 local set = vim.opt -- set options
 set.tabstop = 4
 set.softtabstop = 4

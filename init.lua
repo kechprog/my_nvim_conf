@@ -141,6 +141,7 @@ require('lazy').setup({
   },
 }, {})
 
+require 'nvide'
 require '_ibl'
 require '_startup' -- has to be almost first, it is an actual startup thing
 require '_dap.init'
