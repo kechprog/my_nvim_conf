@@ -1,4 +1,4 @@
-local lspz = require('lsp-zero').preset({})
+local lspz = require('lsp-zero')
 local util = require '_lsp.util'
 local on_attach = util.common_on_attach
 
