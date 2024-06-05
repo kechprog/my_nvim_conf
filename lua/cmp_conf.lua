@@ -24,17 +24,10 @@ require('lspkind').init({
     Constant    = "󰏿 ",
     Struct      = "󰜂 ",
     Operator    = " ",
-    Copilot     = " ",
     Keyword     = " ",
     Snippet     = " ",
   },
 })
-
-require('copilot').setup {
-  suggestion = { enabled = false },
-  panel = { enabled = false },
-}
-require("copilot_cmp").setup()
 
 local function border(hl_name)
   return {
@@ -100,7 +93,7 @@ cmp.setup {
       end
     end, { 'i', 's' }),
 
-    ['\\'] = cmp.mapping( function (fallback) 
+    ['='] = cmp.mapping( function (fallback)
       if require('luasnip').expand_or_jumpable() then
         require('luasnip').expand_or_jump()
       else
@@ -108,13 +101,19 @@ cmp.setup {
       end
     end, {'i', 's'}),
 
-    ['|'] = cmp.mapping( function (fallback)
+    ['+'] = cmp.mapping( function (fallback)
       if require('luasnip').expand_or_jumpable(-1) then
         require('luasnip').expand_or_jump(-1)
       else
         fallback()
       end
     end, {'i', 's'}),
+
+    ['<C-e>'] = cmp.mapping(function(fallback)
+      local success, _ = pcall(vim.lsp.buf.signature_help)
+      if not success then fallback() end
+    end, { 'i', 's' }),
+
   },
 
   formatting = {
@@ -127,14 +126,9 @@ cmp.setup {
 
   experimental = { ghost_text = true },
 
-  sorting = {
-    comparators = { require('copilot_cmp.comparators').score }
-  },
-
   sources = {
     { name = 'nvim_lsp' },
     { name = 'path' },
-    { name = 'copilot' },
     { name = 'luasnip' },
     -- add another
     {}
