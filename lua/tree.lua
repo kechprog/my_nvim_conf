@@ -34,3 +34,11 @@ vim.keymap.set('n', 'c', function ()
     vim.cmd('normal! c')
   end
 end, { noremap = true, silent = true, desc = 'copy path of thing under cursor' })
+
+-- Autocommand to refresh NvimTree when changing directories
+vim.api.nvim_create_autocmd("DirChanged", {
+  pattern = "*",
+  callback = function()
+    require('nvim-tree.api').tree.change_root(vim.fn.getcwd())
+  end,
+})
