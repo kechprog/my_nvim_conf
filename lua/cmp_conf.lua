@@ -93,7 +93,7 @@ cmp.setup {
       end
     end, { 'i', 's' }),
 
-    ['='] = cmp.mapping( function (fallback)
+    ['`'] = cmp.mapping( function (fallback)
       if require('luasnip').expand_or_jumpable() then
         require('luasnip').expand_or_jump()
       else
@@ -101,7 +101,7 @@ cmp.setup {
       end
     end, {'i', 's'}),
 
-    ['+'] = cmp.mapping( function (fallback)
+    ['~'] = cmp.mapping( function (fallback)
       if require('luasnip').expand_or_jumpable(-1) then
         require('luasnip').expand_or_jump(-1)
       else
