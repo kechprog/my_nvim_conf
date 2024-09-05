@@ -28,7 +28,6 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-sleuth',
-
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -39,6 +38,11 @@ require('lazy').setup({
       { 'j-hui/fidget.nvim', opts = {} },
       'folke/neodev.nvim',
     },
+  },
+
+  {
+    'benknoble/vim-racket',
+    ft = 'racket'
   },
 
   {
@@ -157,3 +161,4 @@ require('nvim-autopairs').setup {}
 require 'term'
 require 'todo-comment'
 require '_leap'
+require 'autopairs'

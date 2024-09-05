@@ -57,3 +57,9 @@ mason_lspconfig.setup_handlers {
     }
   end
 }
+
+require('lspconfig').racket_langserver.setup {
+  cmd = { "racket", "--lib", "racket-langserver" }, -- Command installed via raco
+  capabilities = capabilities,
+  on_attach = on_attach,
+}
