@@ -79,6 +79,8 @@ require('lazy').setup({
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'hrsh7th/cmp-path', 'saadparwaiz1/cmp_luasnip', 'L3MON4D3/LuaSnip' },
   },
 
+  "huynle/ogpt.nvim",
+
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',          opts = {} },
   {
@@ -162,3 +164,4 @@ require 'term'
 require 'todo-comment'
 require '_leap'
 require 'autopairs'
+require 'ai'

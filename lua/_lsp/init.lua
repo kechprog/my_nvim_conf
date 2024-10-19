@@ -12,7 +12,7 @@ lspz.set_sign_icons({
 })
 lspz.setup()
 
-require '_lsp._flutter'.setup(lspz)
+-- require '_lsp._flutter'.setup(lspz)
 
 vim.g.zig_fmt_autosave = 0 -- it is what it is
 local servers = {
